@@ -1,0 +1,14 @@
+{
+  "name": "css_sass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scass css/style.css"
+  },
+  "author": "Guga",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^6.0.0"
+  }
+}
