@@ -3,12 +3,27 @@
 *::after {
         margin: 0;
         padding: 0;
-        /* box-sizing helps us to get rid of additional margin/padding/border px that are added to actual size of the width/height of the box and keeps them inside */
+        /* box-sizing helps us to get rid of additional margin/padding/border px that 
+        are added to actual size of the width/height of the box and keeps them inside */
         box-sizing: inherit;     
     }
 
 html {
-    font-size: 62.5%;     
+    //here we define what is 1rem
+    font-size: 62.5%;  // 1 rem = 10px; 10px/16px = 62.5% of default font-size which 16px   
+
+    // @include respond(phone) {  not necessary since condition is true for tablet as well
+    //     font-size: 50%;
+    // }
+    @include respond(tab-landscape) {
+        font-size: 56.25%; //1rem = 9px 9/16 = 56.25%
+    }
+    @include respond(tablet) {
+        font-size: 50%;  //1rem = 8px 8/16 = 50%
+    }
+    @include respond(large-screen) {
+        font-size: 75%; //1rem = 12px 12/16 = 75%
+    }
 }
 
 body {

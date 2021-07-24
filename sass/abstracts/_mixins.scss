@@ -1,0 +1,43 @@
+@mixin clearfix {
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+//============ MEDIA QUERIES ========================
+/*0- 600PX phone 
+600 - 900 tablet
+900 - 1200 landscape
+1200-1800 - normal styles 
+1800+ large desktop
+
+1em = 16px
+we need to convert px to em
+
+*/
+
+
+@mixin respond ($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) {@content};  //600px
+    }
+    @if $breakpoint == tablet {
+        @media (max-width: 56.25em) {@content};  //900px
+    }
+    @if $breakpoint == tab-landscape {
+        @media (max-width: 75em) {@content}; //1200px
+    }
+    @if $breakpoint == large-screen {
+        @media (min-width: 112.5em) {@content};  //1800px
+    }
+}
