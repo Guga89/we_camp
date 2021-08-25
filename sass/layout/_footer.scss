@@ -3,9 +3,17 @@
     padding: 10rem 0;
     font-size: 1.4rem;
 
+    @include respond (tablet) {
+        padding: 8rem 0;
+    }
+
     &__logo-box {
         text-align: center;
         height: auto;
+
+        @include respond (tablet) {
+            margin-bottom: 6rem;
+        }
     }
 
     &__logo {
@@ -17,6 +25,11 @@
         border-top: 1px solid $color-gray-2;
         padding-top: 2rem;
         display: inline-block;
+
+        @include respond (tablet) {
+            width: 100%;
+            text-align: center;
+        }
     }
 
     &__list {
@@ -52,5 +65,10 @@
         border-top: 1px solid $color-gray-2;
         padding-top: 2rem;
         display: inline-block;
+
+        @include respond (tablet) {
+            width: 100%;
+            float: none;
+        }
     }
 }

@@ -2,34 +2,39 @@
     &__group:not(:last-child) {
         margin-bottom: 2rem;
     }
+
     &__input {
         font-size: 1.5rem;
         font-family: inherit;
+        color: inherit;
         padding: 1.5rem 2rem;
         border-radius: 2px;
-        color: inherit;
         background-color: rgba($color-white, .5);
-        border-bottom: 3px solid transparent;
         border: none;
+        border-bottom: 3px solid transparent;
         width: 90%;
         display: block;
-        
-        &:focus{
+        transition: all .3s;
+
+        @include respond(tablet) {
+            width: 100%;
+        }
+
+        &:focus {
             outline: none;
             box-shadow: 0 1rem 2rem rgba($color-black, .1);
-            border-bottom: 3px solid $color-primary-dark;
+            border-bottom: 3px solid $primary-color;
         }
-        
+
         &:focus:invalid {
             border-bottom: 3px solid $color-secondary-dark;
-
         }
-    
+
         &::-webkit-input-placeholder {
-            color: $color-gray-dark;
+            color: $color-grey-darker;
         }
-
     }
+
 
     &__label {
         font-size: 1.2rem;
@@ -40,20 +45,27 @@
         transition: all .3s;
     }
 
-    &__input:placeholder-shown + &__label{
+    &__input:placeholder-shown + &__label {
         opacity: 0;
         visibility: hidden;
         transform: translateY(-4rem);
     }
 
+
     &__radio-group {
         width: 49%;
         display: inline-block;
+
+        @include respond(tablet) {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
     }
 
     &__radio-input {
         display: none;
     }
+    
     &__radio-label {
         font-size: $default-font-size;
         cursor: pointer;
@@ -73,6 +85,7 @@
 
         &::after {
             content: "";
+            display: block;
             height: 1.3rem;
             width: 1.3rem;
             border-radius: 50%;
@@ -83,12 +96,10 @@
             background-color: $primary-color;
             opacity: 0;
             transition: opacity .2s;
-
         }
     }
 
     &__radio-input:checked ~ &__radio-label &__radio-button::after {
         opacity: 1;
     }
-
 }
